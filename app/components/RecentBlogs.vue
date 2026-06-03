@@ -1,14 +1,43 @@
 <template>
   <section class="recent-blogs">
-    <h2>{{ slice?.primary?.section_title }}</h2>
-    <div v-for="(item, i) in slice?.items" :key="i" class="blog-card">
-      <h3>{{ item.blog_title }}</h3>
-      <p>{{ item.blog_excerpt }}</p>
-      <NuxtLink :to="item.blog_link?.url">Read more</NuxtLink>
+    <div class="heading">
+      <h1>{{ slice.primary.recent_blog_title }}</h1>
+      <p>{{ slice.primary.recent_blog_description }}</p>
+      <PrismicLink :field="slice.primary.view_all_link" class="view-all-btn">
+        View All
+      </PrismicLink>
+    </div>
+
+    <div class="blogs-cards">
+      <div v-for="blog in blogs" :key="blog.id" class="blog-card">
+        <PrismicImage :field="blog.data.cover_image" class="card-image" />
+
+        <h3><PrismicRichText :field="blog.data.title" /></h3>
+        <p>{{ blog.data.quote }}</p>
+
+        <div class="blog-footer">
+          <div class="author">
+            <PrismicImage :field="blog.data.author_image" class="author-img" />
+            <span>{{ blog.data.author_name }}</span>
+          </div>
+          <span class="date">{{ blog.data.published_date }}</span>
+          <PrismicLink :field="blog" class="btn">Read More</PrismicLink>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
-defineProps({ slice: Object })
+const props = defineProps({ slice: Object })
+
+const prismic = usePrismic()
+
+const { data: blogs } = await useAsyncData('blogs', () =>
+  prismic.client.getAllByType('blog', {
+    orderings: [{ field: 'my.blog.published_date', direction: 'desc' }],
+    pageSize: 3 
+  })
+)
 </script>
+

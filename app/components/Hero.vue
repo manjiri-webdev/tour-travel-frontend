@@ -5,7 +5,9 @@
             : ''
     }">
         <div class="overlay">
-            <h1><PrismicRichText :field="slice.primary.hero_title" /></h1>
+            <h1>
+                <PrismicRichText :field="slice.primary.hero_title" />
+            </h1>
             <button class="cta">
                 <PrismicLink :field="slice.primary.hero_button_link" class="btnlink">
                     {{ slice.primary.hero_button_text }}

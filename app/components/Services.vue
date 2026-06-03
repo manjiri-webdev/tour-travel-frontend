@@ -1,15 +1,31 @@
 <template>
-  <section class="services">
-    <h2>{{ slice?.primary?.section_title }}</h2>
-    <ul>
-      <li v-for="(item, i) in slice?.items" :key="i">
-        <h3>{{ item.service_name }}</h3>
-        <p>{{ item.service_description }}</p>
-      </li>
-    </ul>
-  </section>
+    <section class="services">
+        <div class="heading">
+            <h1>
+                {{ slice.primary.services_title }}
+            </h1>
+            <p>
+                {{ slice.primary.services_description }}
+            </p>
+        </div>
+        <div class="cards">
+            <div v-for="(card, i) in slice.primary.service_card" :key="i" class="card">
+                <PrismicImage :field="card.image" class="card-image" />
+
+                <h3>{{ card.title }}</h3>
+                <p>{{ card.description }}</p>
+
+                <div class="services-footer">
+                    <p class="offer">{{ card.offer_text }}</p>
+                    <PrismicLink :field="card.button_link" class="btn">
+                        {{ card.button_text }}
+                    </PrismicLink>
+                </div>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script setup>
-defineProps({ slice: Object })
+const props = defineProps({ slice: Object })
 </script>
