@@ -1,0 +1,19 @@
+{
+  "name": "coimbatore-commute-frontend-2",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxtjs/prismic": "^5.3.0",
+    "@prismicio/client": "^7.21.8",
+    "nuxt": "^4.4.6",
+    "vue": "^3.5.34",
+    "vue-router": "^5.0.7"
+  }
+}
