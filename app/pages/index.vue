@@ -1,5 +1,14 @@
+<script setup lang="ts">
+import { components } from '../../slices'
+
+const prismic = usePrismic()
+const { data: homepage } = await useAsyncData('homepage', () =>
+  prismic.client.getSingle('homepage')
+)
+</script>
+
 <template>
-  <div>
-    <h1>Hello World</h1>
-  </div>
+  <main>
+    <SliceZone :slices="homepage?.data.slices ?? []" :components="components" />
+  </main>
 </template>
