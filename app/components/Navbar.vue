@@ -15,15 +15,9 @@
     </div>
 
     <div class="actions">
-      <button class="icon-btn">
-        <i class="i-magnifying-glass"></i>
-      </button>
       <PrismicLink :field="slice.sign_in_url" class="sign-in">
         Sign in
       </PrismicLink>
-      <button class="icon-btn">
-        <i class="i-hamburger-menu"></i>
-      </button>
     </div>
   </nav>
 </template>
