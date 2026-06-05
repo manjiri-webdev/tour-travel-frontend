@@ -1,3 +1,5 @@
+html { scroll-behavior: smooth; }
+
 .navbar {
   background-color: transparent;
   display: flex;
@@ -5,6 +7,7 @@
   justify-content: space-between;
   padding: 1rem 1rem;
   color: black;
+  height: 60px;
 }
 
 .branding {
@@ -18,6 +21,8 @@
 }
 
 .links {
+  cursor: pointer;
+  color: black;
   display: flex;
   gap: 1.5rem;
 }
@@ -264,6 +269,7 @@
   color: #fff;
   border-radius: 4px;
   text-decoration: none;
+  cursor: pointer;
 }
 .btn:hover {
   background: #005bb5;

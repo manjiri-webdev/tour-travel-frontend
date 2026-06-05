@@ -1,5 +1,5 @@
 <template>
-    <section class="hero" :style="{
+    <section id="hero" class="hero" :style="{
         backgroundImage: slice.primary.hero_background_image
             ? `url(${slice.primary.hero_background_image.url})`
             : ''

@@ -2,18 +2,16 @@
   <nav class="navbar">
     <div class="branding">
       <PrismicImage :field="slice.logo" class="logo" />
-      <h2><PrismicRichText :field="slice.site_name" /></h2>
+      <h2>
+        <PrismicRichText :field="slice.site_name" />
+      </h2>
     </div>
 
     <div class="links">
-      <PrismicLink
-        v-for="(link, i) in slice.navigation_links"
-        :key="i"
-        :field="link.url"
-        class="nav-item"
-      >
+      <NuxtLink v-for="(link, i) in slice.navigation_links" :key="i" :to="linkMap[link.label] || '/'" class="nav-item"
+        style="color: black">
         {{ link.label }}
-      </PrismicLink>
+      </NuxtLink>
     </div>
 
     <div class="actions">
@@ -32,5 +30,9 @@
 
 <script setup>
 const props = defineProps({ slice: Object })
+const linkMap = {
+  Home: '/#hero',
+  Services: '/#services',
+  Blog: '/#recent-blogs'
+}
 </script>
-

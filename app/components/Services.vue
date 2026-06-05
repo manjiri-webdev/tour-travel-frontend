@@ -1,5 +1,5 @@
 <template>
-    <section class="services">
+    <section id="services" class="services">
         <div class="heading">
             <h1>
                 {{ slice.primary.services_title }}

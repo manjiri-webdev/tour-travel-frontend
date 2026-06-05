@@ -1,18 +1,21 @@
 <template>
-  <section class="recent-blogs">
+  <section id="recent-blogs" class="recent-blogs">
     <div class="heading">
       <h1>{{ slice.primary.recent_blog_title }}</h1>
       <p>{{ slice.primary.recent_blog_description }}</p>
-      <PrismicLink :field="slice.primary.view_all_link" class="view-all-btn">
+
+      <NuxtLink to="/blog" class="view-all-btn">
         View All
-      </PrismicLink>
+      </NuxtLink>
     </div>
 
     <div class="blogs-cards">
       <div v-for="blog in blogs" :key="blog.id" class="blog-card">
         <PrismicImage :field="blog.data.cover_image" class="card-image" />
 
-        <h3><PrismicRichText :field="blog.data.title" /></h3>
+        <h3>
+          <PrismicRichText :field="blog.data.title" />
+        </h3>
         <p>{{ blog.data.quote }}</p>
 
         <div class="blog-footer">
@@ -21,7 +24,10 @@
             <span>{{ blog.data.author_name }}</span>
           </div>
           <span class="date">{{ blog.data.published_date }}</span>
-          <PrismicLink :field="blog" class="btn">Read More</PrismicLink>
+
+          <NuxtLink :to="`/blog/${blog.uid}`" class="btn">
+            Read More
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -36,8 +42,7 @@ const prismic = usePrismic()
 const { data: blogs } = await useAsyncData('blogs', () =>
   prismic.client.getAllByType('blog', {
     orderings: [{ field: 'my.blog.published_date', direction: 'desc' }],
-    pageSize: 3 
+    pageSize: 3
   })
 )
 </script>
-

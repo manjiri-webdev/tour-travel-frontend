@@ -4,7 +4,6 @@ import NavFooter from '../components/NavFooter.vue'
 
 const prismic = usePrismic()
 
-// Fetch nav_and_footer single type
 const { data: navFooter } = await useAsyncData('navFooter', () =>
   prismic.client.getSingle('nav_and_footer')
 )
