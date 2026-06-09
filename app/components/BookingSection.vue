@@ -44,12 +44,12 @@ const submitBooking = async () => {
   errorMsg.value = ''
   successMsg.value = ''
   try {
-    await $fetch('BACKEND_API_URL/api/bookings', {
+    await $fetch("/api/bookings/create", {
       method: 'POST',
       body: {
-        location: formData.value.location,
-        mobile: formData.value.mobile,
-        date: formData.value.date
+        pickup_location: formData.value.location,
+        travel_date: formData.value.date,
+        mobile_number: formData.value.mobile,
       }
     })
     successMsg.value = 'Booking confirmed! We will contact you soon.'

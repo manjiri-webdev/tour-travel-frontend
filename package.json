@@ -19,6 +19,8 @@
     "vue-router": "^5.0.7"
   },
   "devDependencies": {
+    "@types/node": "^25.9.2",
+    "@types/pg": "^8.20.0",
     "vite-tsconfig-paths": "^6.1.1"
   }
 }
