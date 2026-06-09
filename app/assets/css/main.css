@@ -587,3 +587,95 @@ html { scroll-behavior: smooth; }
 .newsletter-form button:hover {
   background: #eee;
 }
+
+/*booking section */
+
+.booking-section {
+  background: #000;
+  padding: 60px 40px;
+}
+.booking-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  align-items: center;
+}
+.booking-left h2 {
+  color: white;
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.booking-left p {
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.booking-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.booking-row {
+  width: 100%;
+}
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.booking-select,
+.booking-input {
+  width: 100%;
+  padding: 16px 20px;
+  background: transparent;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+}
+.booking-select option {
+  background: #000;
+  color: white;
+}
+.booking-select:focus,
+.booking-input:focus {
+  border-color: white;
+}
+.booking-input::placeholder {
+  color: #888;
+}
+.booking-btn {
+  width: 100%;
+  padding: 16px;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+.booking-btn:hover {
+  background: #f0f0f0;
+}
+.booking-btn:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+.success-msg {
+  color: #00cc66;
+  font-weight: 600;
+  text-align: center;
+}
+.error-msg {
+  color: #ff4444;
+  font-weight: 600;
+  text-align: center;
+}
